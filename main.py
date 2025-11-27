@@ -73,3 +73,10 @@ print(set1.difference(set2))
 
 #decorators
 
+
+
+#Dicts
+#HASHABLE 
+
+
+
