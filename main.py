@@ -78,5 +78,56 @@ print(set1.difference(set2))
 #Dicts
 #HASHABLE 
 
+dic = {"primero":"primer elemento", "segundo": "segundo elemento"}
+
+print(dic.get("primer elemento", "default")) # if the element is not found, return none or in this case defautl
+dic["tercero"] = "tercer elemento"
+print(dic)
+
+deleted = dic.pop("tercero")
+print(deleted, dic)
+# suma de diccionarios
+
+dic2 = {"cuarto":"cuarto elemento", "quinto":"quinto elemento"}
+dic3 = dic.update(dic2)
+print(dic3)  
+# or
+
+print({**dic, **dic2})
+
+#default dic
+from collections import defaultdict
+d1 = {}
+d1["a"] = 0
+d1["a"] += 1
+d1["a"] += 1
+
+dic_default = defaultdict(int)
+dic_default["c"]
+print(dic_default)
+
+#Counter(contador)
+
+from collections import Counter
+
+l = [1,2,3,4,5,6,7,6,7,5,7,8,65]
+
+cont = Counter(l)
+print(cont)
 
 
+#Dict como atributos
+
+class MyDict():
+    data = {}
+    def __setattr__(self, name, value):
+        self.data[name] = value
+    def __getattribute__(self, name):
+        return self.data[name]
+
+    
+my_dict = MyDict()    
+
+my_dict.dima = 5
+my_dict.perro = 10
+print(my_dict.dima)
