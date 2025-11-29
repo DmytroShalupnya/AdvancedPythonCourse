@@ -197,5 +197,10 @@ def funct_copmpres(a):
 print(dis.dis(funct_copmpres))
 """
 list append de la compress es mucho mas rapido que llamar al metodo y cargarlo en cada iteracion
+pero solo empieza a ahorrar cuando hay muchos elementos, asi compensa la memoria gastada  en crear la funcion anonima
+"""
+"""
+ver donde fallan funciones complejas
 
 """
+
