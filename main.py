@@ -117,7 +117,7 @@ print(cont)
 
 
 #Dict como atributos
-
+"""
 class MyDict():
     data = {}
     def __setattr__(self, name, value):
@@ -131,3 +131,16 @@ my_dict = MyDict()
 my_dict.dima = 5
 my_dict.perro = 10
 print(my_dict.dima)
+"""
+
+
+#bytecode
+
+def print_message(message):
+    print(message)
+
+def hello_world(message):
+    print_message(message)    
+
+
+hello_world("hola, holita")    
