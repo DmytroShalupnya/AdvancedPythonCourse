@@ -204,3 +204,9 @@ ver donde fallan funciones complejas
 
 """
 
+def function(a):
+    if a.mimetodo:
+        return a
+print(dis.dis(function))
+
+
