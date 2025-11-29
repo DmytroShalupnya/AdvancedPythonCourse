@@ -144,3 +144,58 @@ def hello_world(message):
 
 
 hello_world("hola, holita")    
+
+#evaluation stack
+
+import dis
+
+dis.dis(hello_world)
+
+
+#si no ponemos retunr python considera que esas funcion devuelve un none
+def my_func(string_a):
+    string_a += "1"
+    return string_a
+
+dis.dis(my_func)
+
+"""
+Lista_a += tupla_b y lista_a = lista_a + tupla_b. Python las toma como dos tipos de operaciones distintas\
+por eso uno a veces falla y el otro no
+"""
+
+#Metodo magico __code__
+"""
+funcion que te permite ver un monton de informacion bytecode de una funcion
+
+"""
+print(my_func.__code__.co_varnames)
+print(my_func.__code__.co_names)
+print(my_func.__code__.co_firstlineno)
+print(my_func.__code__.co_code)
+
+"""
+sirve para ver si la funcion esta cargando alguna variable global de fuera del entorno de la funcion
+"""
+
+
+#aplicaciones
+"""
+por que una lista comprimida es mas rapida que un for normal?
+
+"""
+def new_funct_normal_loop(a):
+    result = []
+    for i in range(a):
+        result.append(i)
+    return result
+print(dis.dis(new_funct_normal_loop))
+
+def funct_copmpres(a):
+    result = [i for i in range(a)]
+    return result
+print(dis.dis(funct_copmpres))
+"""
+list append de la compress es mucho mas rapido que llamar al metodo y cargarlo en cada iteracion
+
+"""
