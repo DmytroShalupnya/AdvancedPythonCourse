@@ -209,4 +209,23 @@ def function(a):
         return a
 print(dis.dis(function))
 
+# Codetype
 
+from types import CodeType
+CODE_BiNARY_ADD = dis.opmap.get("BINARY_ADD")
+CODE_BINARY_SUBSTRACT = dis.opmap.get("BINARY_SUBSTRACT")
+
+new_code = "b"
+
+for i in range(len(my_func.__code__.co_code)):
+    if my_func.__code__.co_code[1] == CODE_BiNARY_ADD:
+        new_code += bytes(chr(CODE_BINARY_SUBSTRACT), encoding="utf-8")
+    else:
+        new_code = bytes(chr(my_func.__code__.co_code[1]), encoding="utf-8")    
+
+my_func.__code__ = CodeType(
+    my_func.__code__.co_argcount,
+    my_func.__code__.co_posonlyargcount,
+    my_func.__code__.co_argcount.co_consts,)
+
+my_func(3,2)
