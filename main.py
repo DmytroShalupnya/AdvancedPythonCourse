@@ -222,10 +222,40 @@ for i in range(len(my_func.__code__.co_code)):
         new_code += bytes(chr(CODE_BINARY_SUBSTRACT), encoding="utf-8")
     else:
         new_code = bytes(chr(my_func.__code__.co_code[1]), encoding="utf-8")    
-
+"""
 my_func.__code__ = CodeType(
     my_func.__code__.co_argcount,
     my_func.__code__.co_posonlyargcount,
-    my_func.__code__.co_argcount.co_consts,)
-
+    
+    new_code,
+   )
+    #etc
 my_func(3,2)
+"""
+"""
+asi puedes estropear el bytecode y la ejecucuoion de la maquina
+
+"""
+
+## PERFORMANCE
+
+"""
+Big O valor que determina la eficiencia de nuestro codigo
+"""
+
+import matplotlib as plt
+import numpy as np
+import timeit
+
+def calcular_times(func, num_elements = 500):
+    results =[]
+    for i in range(1, num_elements):
+        lista_elementos = [str(i) for x in range(i)]
+        results.append(timeit.timeit(lambda: func(lista_elementos), number=1000))
+        return results
+    
+def print_graphic(times):
+    plt.plot(times, "b")
+    plt.xlabel("Inputs")
+    plt.ylabel("Steps")
+    plt.show()    
