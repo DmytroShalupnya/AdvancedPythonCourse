@@ -259,3 +259,8 @@ def print_graphic(times):
     plt.xlabel("Inputs")
     plt.ylabel("Steps")
     plt.show()    
+
+
+
+    #deorators 
+    
