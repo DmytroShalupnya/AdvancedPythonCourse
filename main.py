@@ -263,4 +263,9 @@ def print_graphic(times):
 
 
     #deorators 
+    #advanced decorators 
+
+
+    #usefull libraries
+
     
