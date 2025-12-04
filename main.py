@@ -346,3 +346,34 @@ def logger(fn_to_decorate):
     wrapper.__dict__ = fn_to_decorate.__dict__
     wrapper.__name__ = fn_to_decorate.__name__
     return wrapper
+
+
+# librearie wraps, to decorate a decorator to avoid the stuff above
+
+
+#deocrators with arguments
+
+
+def logger_with_params(*args, **kwargs):
+    def wrapper(func):
+        print("Arguments: %s, %s" % (args,kwargs))
+        """
+        do operations with function
+        
+        """
+        return func
+    
+
+def mi_function3(param1, param2):
+    return "hola  {}  {}".format(param1, param2)
+
+mi_funcion3 = (logger_with_params("hola", "test"))(mi_function3)
+print(mi_funcion3("Harry", "Potter"))
+
+@logger_with_params("Hola","test")
+def mi_func4(param1, param2):
+    return "hola {} {}".format(param1,param2)
+
+
+print(mi_func4("Harry", "Potter"))
+
