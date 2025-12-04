@@ -278,4 +278,71 @@ def recuperar_elemento_2(mi_lista):
     return result
         
     # O = n^2
+
+#Type Hinting
+
+#basic type hinting
+def greeting(name:str) -> str:
+    print("Hello" + name)    
+
+
+#typoe hinting with default value
+
+def greeting_with_dwefault(name: str= "Anonymus") -> str:
+    return ("Hello" + name)
+
+
+#type hinting with more advanced data structures
+from typing import List, Union,Text
+
+
+def add(number_list: List[int]) -> int:
+    add_total = 0
+    for i in number_list:
+        add_total += i
+    return add_total    
+
+#type hinting union. when there is more than one return
+
+
+def add(number_list: List[int]) -> Union[int, Text]:
+    add_total = 0
+    for i in number_list:
+        add_total += i
+    if add_total == 0:
+        return "Add Total = 0"     
+    return add_total    
+
+
+
+##       DECORATORS
+
+# creating a decorator
+
+def mi_funcion(param1, param2):
+    return "hola {} {}".format(param1,param2)
+
+
+def logger1(fn_to_decorate): #The actual decorator
+    def wrapper(*args, **kwargs):
+        print("Function %s called with arguments : %s, %s" % (fn_to_decorate.__name__, args, kwargs))
+        return fn_to_decorate(*args, **kwargs)
     
+    return wrapper
+
+new_logger = logger1(mi_funcion)
+print(new_logger("Harry", "Potter"))
+
+# method to fix the information returned with the help() method if the funciont is already decorated
+# like @logger1 mi funcion
+
+
+def logger(fn_to_decorate): 
+    def wrapper(*args, **kwargs):
+        print("Function %s called with arguments : %s, %s" % (fn_to_decorate.__name__, args, kwargs))
+        return fn_to_decorate(*args, **kwargs)
+    
+    wrapper.__doc__ = fn_to_decorate.__doc__
+    wrapper.__dict__ = fn_to_decorate.__dict__
+    wrapper.__name__ = fn_to_decorate.__name__
+    return wrapper
