@@ -246,6 +246,7 @@ Big O valor que determina la eficiencia de nuestro codigo
 import matplotlib as plt
 import numpy as np
 import timeit
+#Big-O  O(log n).O(1) debe ser el valor perfecto de O es decir O = 1
 
 def calcular_times(func, num_elements = 500):
     results =[]
@@ -259,13 +260,22 @@ def print_graphic(times):
     plt.xlabel("Inputs")
     plt.ylabel("Steps")
     plt.show()    
+    # O = 1.
+
+def recuperar_elemento(mi_lista):
+    for i in mi_lista:
+        result = i
+    return result
+    # O = n
 
 
+## Cuadratico
 
-    #deorators 
-    #advanced decorators 
-
-
-    #usefull libraries
-
+def recuperar_elemento_2(mi_lista):
+    for i in mi_lista:
+        for elemento_2 in mi_lista:
+            result = elemento_2
+    return result
+        
+    # O = n^2
     
