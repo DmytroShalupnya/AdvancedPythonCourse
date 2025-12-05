@@ -402,3 +402,50 @@ def greet(i):
     return f"Hello {str(i)}"
 
 [greet(i) for i in (1,2,3,4)]
+
+
+# Types of compressed lists
+
+type([i for i in range(10)])  #List
+
+type((i for i in range(10))) #generator
+
+type(tuple(i for i in range(10)))  #tuple
+
+type({i for i in range(10)})  # set
+
+type({i:i for i in range(10)})  #Dict
+
+
+#  Functions with compressed lists
+
+list(range(5))  # range
+
+list(map(lambda x: x/2, (i for i in range(10)))) #map
+
+list(filter(lambda x: x % 2, (i for i in range(10)))) #filter return only even
+
+
+# All and Any
+
+all([True,True,False]) #returns false
+any([True,True,False]) #returns true
+
+all([True, True, True]) #return true
+
+
+#librarie itertools
+
+import itertools as it
+
+list(it.accumulate(i for i in range(10)))
+
+list(it.product("abcd" , repeat=2))
+
+[(p1,p2) for p1, p2 in it.product("abcd" , repeat=2) if p1 != p2]
+
+
+it.
+
+
+
