@@ -377,3 +377,28 @@ def mi_func4(param1, param2):
 
 print(mi_func4("Harry", "Potter"))
 
+## List comprehensions 
+
+
+#classic form
+test_list = []
+for i in range(10):
+    test_list.append(i)
+
+#Compressed list
+
+[i for i in range(10)]
+
+
+## Some possible operations Operations
+
+[i + i for i in (1,2,3,4)]
+
+[i for i in (1,2,3,4) if i !=2]
+[(i,j) for i in (1,2,3,4) for j in (5,6,7,8)]
+[(i,j,k) for i in (1,2,3,4) for j in (5,6,7) for k in(8,9)]
+
+def greet(i):
+    return f"Hello {str(i)}"
+
+[greet(i) for i in (1,2,3,4)]
