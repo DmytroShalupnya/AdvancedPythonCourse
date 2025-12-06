@@ -445,7 +445,48 @@ list(it.product("abcd" , repeat=2))
 [(p1,p2) for p1, p2 in it.product("abcd" , repeat=2) if p1 != p2]
 
 
-it.
+#   Generators
+"""
+Funciones que suspendes su ejecucion . pudiendo devolver el resultado poco a poco.
+Se utiliza la palabra reervada (( yield )) en vez de (( return )) 
+"""
+
+
+def gen_funct():
+    for i in range(10):
+        yield i
+
+print(list(gen_funct()))
+
+iterator = gen_funct()
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+
+#si hacemos next de un iterador que esta fuera de rango no da un StopIteration  
+
+#las funciones con yield mantienen el estado, es decir no se reinician entre una llamada y otra
+
+
+compr_list = [i for i in gen_funct()]
+
+
+# comunication with generators
+
+
+def gen_func_with_send():
+    val = yield 1
+    print(val)
+    yield 2
+    yield 3
+
+gen = gen_func_with_send()
+print(next(gen))
+print(gen.send("abc"))  #cuando llamamos a gen.send() el argumento es pasado como el valor de retorno de yield
+print(next(gen))
+
+# la primera llamada del generador no se puede hacer con .send, tiene que ser con next 
+# hasta que llegue al primer yield
 
 
 
