@@ -1,3 +1,4 @@
+
 var = ["hola","adios"]
 
 varMod = var.reverse()
@@ -489,4 +490,35 @@ print(next(gen))
 # hasta que llegue al primer yield
 
 
+# yield from
 
+def inner():
+    inner_result = yield 2
+    print("inner", inner_result)
+    return 3
+
+def outer():
+    yield 1
+    val = yield from inner()
+    print("outer", val)
+    yield 4
+
+gen= outer()
+print(next(gen), "*" * 10, sep="\n")
+print(next(gen), "*" * 10, sep="\n")
+print(gen.send("abc"), "*" * 10, sep="\n")
+
+
+# class as generators
+
+class MyGenerator():
+    counter = 0
+    def __iter__(self,):
+        while self.counter <20:
+            val = yield self.counter
+            self.counter += 1
+
+gen = MyGenerator()
+print([i for i in gen ])
+
+# los generadores consumen muy poca memoria
