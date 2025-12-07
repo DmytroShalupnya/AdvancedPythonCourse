@@ -522,3 +522,42 @@ gen = MyGenerator()
 print([i for i in gen ])
 
 # los generadores consumen muy poca memoria
+
+
+#  Concurrencias  
+
+
+"""
+una corrutina es una funcion con estado.
+las corrutinas son variaciones de los generadores
+"""
+# ejemplo de los threads
+
+import time
+
+def countdown(number):
+    while number > 0:
+        number -= 1
+
+if __name__ == "__main__":
+    start = time.time()
+
+    count = 1000000
+
+    countdown(count)    
+
+    print(f"tiempo transucrrido {time.time()- start}")    
+
+# lo mismo pero con threads  en archivo main2.py
+
+"""
+las funciones con estado sirven precisamente para poder evitar tener que usar threads y evitar tiempos muertos en las ejecuciones
+
+generadores : def/ yield | yield from (func)  |  def __iter__()
+
+corrutinas: async def/ return | await (func)  |  def __await__()
+
+
+"""
+        
+
