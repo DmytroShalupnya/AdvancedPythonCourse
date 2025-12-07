@@ -556,8 +556,14 @@ las funciones con estado sirven precisamente para poder evitar tener que usar th
 generadores : def/ yield | yield from (func)  |  def __iter__()
 
 corrutinas: async def/ return | await (func)  |  def __await__()
-
+"""
+#   futures
 
 """
+Objetos que tienen implementado el metodo __await__ su funcion es mantener un estado y un resultado
+Estos objetos pueden tener callbacks
+"""
+
+# revisar esto otra vez porque menuda locura
         
 
