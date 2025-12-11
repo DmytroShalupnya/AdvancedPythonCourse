@@ -567,3 +567,8 @@ Estos objetos pueden tener callbacks
 # revisar esto otra vez porque menuda locura
         
 
+#  frasmeworks
+
+"""
+distintos frameworkds de uso habitual en python
+"""
