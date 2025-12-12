@@ -595,6 +595,50 @@ async def main1():
 asyncio.run(main1())
 
 
+## CLASES
+
+# atributos no visibles
+
+"""
+se desaconseja usar atributos no visbles porque en python se pude acceder a ellos igualmente
+un _ por debajo para los atributos protegidos 
+dos __ para los atributos privados
+pero aun asi se puede acceder a los metodos privados asi:
+myclass(objeto)._Myclass__name_private
+"""
+# clases abstractas
+
+"""
+para usar clases abstractas utilizamos el modulo abc de python
+
+las clases abstractas no pueden ser instanciadas (no se puede crear un objeto)
+solo se pueden heredar
+
+"""
+from abc import ABC, abstractmethod
+class UserRepository(ABC):
+    def __init__(self, username):
+        self.__username = username
+    
+    @property
+    @abstractmethod
+    def username(self):
+        return self.__username
+   
+   
+    @classmethod
+    @abstractmethod
+    def save(self, user_data):
+        print(f"User {self} saved")
+
+#user = UserRepository(username="Paco")  #esto daria error
+          
+
+
+
+
+
+
 #  frasmeworks
 
 """
