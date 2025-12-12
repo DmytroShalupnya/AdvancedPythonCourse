@@ -567,6 +567,34 @@ Estos objetos pueden tener callbacks
 # revisar esto otra vez porque menuda locura
         
 
+#  Libreria Asyncio
+
+import asyncio
+
+async def main():
+    await asyncio.sleep(1)
+    print("hello")
+
+asyncio.run(main()) #   esto sirve para que python pueda correr la funcion de forma asincrona, crea el event loop 
+
+
+## otro ejemplo
+
+async def say_after(delay, word):
+    await asyncio.sleep(delay)
+    print(word)
+
+async def main1():
+    print(f"Started at {time.strftime("%%")}")
+
+    await say_after(1, "hello")
+    await say_after(2, "world")
+
+    print(f"Dinished at {time.strftime("%%")}")
+
+asyncio.run(main1())
+
+
 #  frasmeworks
 
 """
