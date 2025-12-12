@@ -633,6 +633,27 @@ class UserRepository(ABC):
 
 #user = UserRepository(username="Paco")  #esto daria error
           
+# class decorators
+
+class Prueba:
+    """
+    @staticmethod sirve para llamar a un metodo de clase sin tener que instanciarla
+    es decir : se puede hacer Prueba.say_hello("hola")
+    en vez de :
+    prueba = Prueba()
+    prueba.say_hello("hola)
+    """
+    @staticmethod  #le quita la necesidad de self
+    def say_hello(msg):
+        return "hello world {}".format(msg)
+    
+    """
+    este hace que el metodo solo se pueda acceder desde la clase y no desde una instancia
+    
+    """
+    @classmethod  # se puede evitar pasandole la clase como primer argumento en vez de self
+    def say_hello1(msg):
+        return "hello world {}".format(msg)
 
 
 
